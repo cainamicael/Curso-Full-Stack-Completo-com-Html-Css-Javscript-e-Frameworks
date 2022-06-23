@@ -672,6 +672,8 @@ externo: for (a in nums) {
 
 Função
 
+Posso guardar o retorno de uma função em uma variável.
+
 Cidadão de Primeira Linha:
 Pode tratar função como um dado
 Função de alta ordem
@@ -711,6 +713,9 @@ cincomais(4)
 Parâmetros e retornos são opcionais
 Função sem parâmetros
 Arguments é um array interno da função, que faz com que não precise de parâmetros
+
+Função com parâmetros variáveis: 
+Posso colocar quantos parâmetros eu quiser
 
 Arguments:
 function soma(){
@@ -829,3 +834,28 @@ ou:
 const notasMenorQue7 = nota => nota < 7
 const notasBaixas2 = notas.filter(notasMenorQue7) // sem precisar criar array notasBaixas2 e armazenando função em variavel
 console.log(notasBaixas2)
+
+Funções construtoras:
+Usa a função como se fosse classe
+O this torna público e o let privado
+
+Tipos de declaração
+
+Eu posso chamar a função, antes de ter criado ela, pois o interpretador do js carraga elas primeiro
+Se for uma função literal
+
+console.log(soma(3, 4))
+//function declaration
+function soma(x, y){
+    return x + y
+}
+
+Contexto Léxico:
+A função carrega consigo, a informação do contexto em que ela foi declarada
+A função procura a variável perto de onde ela foi definida
+
+Closures
+
+Basea-se no contexto léxico.
+É o escopo criado quando uma função é declarada
+Esse escopo permite a função acerrar e manipular variáveis externas à função
