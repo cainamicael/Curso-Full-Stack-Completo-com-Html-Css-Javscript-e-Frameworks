@@ -925,3 +925,24 @@ function Pessoa2(nome){
 }
 const p2 = new Pessoa2("João")
 p2.falar()
+
+IIFE - Imediately invoked function expression
+
+Função auto-invocada
+Fugir do escopo global
+Função anônima entre parênteses, e foda do ), abrir e fechar, para executar na hora.
+
+(function () {
+    console.log("Será executado na hora!")
+    console.log("Foge do escopo mais abrangente")
+})()
+
+Call & Apply
+
+Chama a função e passa o objeto que vai ser usado como contexto
+
+Call:
+console.log(getPreco.call(carro, 0.17, '$')) // Passo direto como parâmetro
+
+Apply:
+console.log(getPreco.apply(carro, [0.17, '$'])) // Passa os parâmetros como Array
