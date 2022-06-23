@@ -946,3 +946,45 @@ console.log(getPreco.call(carro, 0.17, '$')) // Passo direto como parâmetro
 
 Apply:
 console.log(getPreco.apply(carro, [0.17, '$'])) // Passa os parâmetros como Array
+
+Orientação a objetos
+
+Adicionando chaves e valores:
+const produto = new Object
+produto.nome = 'cadeira'
+produto['marca do produto'] = 'Genérica'
+produto.preco = 220
+
+Deletando chaves e valores:
+delete produto.preco
+delete produto['Marca do produto']
+
+Exemplo de construção de objetos:
+const carro = {
+    modelo: 'a4',
+    valor: 89000,
+    proprietario: {
+        nome: 'raul',
+        idade: 56,
+        endereco: {
+            logradouro: 'Rua abc',
+            numero: 123
+        }
+    },
+    condutores: [{
+        nome: 'Júnior',
+        idade: 19
+    }, {
+        nome: 'Ana',
+        idade: 42
+    }],
+    calcularValorDoSeguro: function(){
+        //...
+    }
+}
+
+Manipulação:
+carro.proprietario.endereco.numero = 1000
+delete carro.condutores
+delete carro.proprietario.endereco
+delete carro.calcularValorDoSeguro
