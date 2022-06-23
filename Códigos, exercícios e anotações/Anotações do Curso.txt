@@ -838,6 +838,7 @@ console.log(notasBaixas2)
 Funções construtoras:
 Usa a função como se fosse classe
 O this torna público e o let privado
+Precisa instanciar
 
 Tipos de declaração
 
@@ -1030,6 +1031,10 @@ const filha = Object.create(null)
 filha.nome = 'Ana'
 console.log(filha)
 
-/Uma função famosa que retorna um objeto:
+Uma função famosa que retorna um objeto:
 const fromJSON = JSON.parse('{"info":"Sou um JSON"}')
 console.log(fromJSON.info)
+
+Objeto constante:
+Object.freeze(pessoa) //Congela o objeto
+const pessoaConstante = Object.freeze({nome: 'João'}) //Congela o objeto
