@@ -41,3 +41,6 @@ console.log(volvo.status())
 
 ferrari.acelerarMais(300)
 console.log(ferrari.status())
+
+volvo.acelerarMais(300)
+console.log(volvo.status())

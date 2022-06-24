@@ -1132,3 +1132,18 @@ const volvo = {
 Setando protótipo:
 Object.setPrototypeOf(ferrari, carro) // Ferrari vai ter como protótipo carro
 Object.setPrototypeOf(volvo, carro) // Volvo vai ter como protótipo carro
+
+Object.create já cria passando o prototipo:
+const pai = {nome: 'Pedro', corCabelo: 'Preto'}
+const filha1 = Object.create(pai)
+filha1.nome = 'Ana'
+console.log(filha1.corCabelo)
+const filha2 = Object.create(pai, {
+    nome: {value: 'Bia', writable: false, enumerable: true}
+})
+console.log(filha2.nome)
+console.log(`${filha2.nome} tem cabelo ${filha2.corCabelo}`)
+for(let key in filha2){
+    filha2.hasOwnProperty(key) ?
+        console.log(key) : console.log('Por herança' + key)
+}
