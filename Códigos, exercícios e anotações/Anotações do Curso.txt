@@ -366,7 +366,7 @@ const pessoa = {
 }
 
 Extraindo os atributos do objeto:
-cconst {nome, idade} = pessoa
+const {nome, idade} = pessoa
 console.log(nome, idade)
 
 Colocando os atributos do objeto extraídos em variáveis:
@@ -1038,3 +1038,97 @@ console.log(fromJSON.info)
 Objeto constante:
 Object.freeze(pessoa) //Congela o objeto
 const pessoaConstante = Object.freeze({nome: 'João'}) //Congela o objeto
+
+Getters & Setters
+
+const sequencia = {
+    _valor: 1, //Mostra que vai ser uma variável privada - Mas é só na sintaxe, não muda a semântica
+    get valor(){
+        return this._valor++
+    },
+    set valor(valor){
+        if (valor > this._valor){
+            this._valor = valor
+        }
+    }
+}
+console.log(sequencia.valor, sequencia.valor)//get
+sequencia.valor = 1000 //set
+console.log(sequencia.valor, sequencia.valor)
+
+Funções importantes de Objeto
+
+console.log(Object.keys(objeto))//retorna só as chaves
+console.log(Object.values(objeto))//Retorna só os valores
+console.log(Object.entries(pessoa))//Cria um sub array com chave/valor
+
+Destructuring:
+Object.entries(pessoa).forEach(e => {
+    console.log(`${e[0]}: ${e[1]}`)
+}) 
+//ou
+Object.entries(pessoa).forEach(([chave, valor]) => {
+    console.log(`${chave}: ${valor}`)
+})
+
+Definindo Propriedade:
+Object.defineProperty(pessoa, 'dataNascimento',{
+    enumerable: true,
+    writable: false,
+    value: '01/01/2001'
+})
+console.log(pessoa.dataNascimento) //adiciona dataNascimento ao objeto
+
+Concatenar objetos para objeto de destino:
+const dest = {a: 1}
+const o1 = {b: 2}
+const o2 = {c: 3, a: 4} //sobescreve o a para 4
+const obj = Object.assign(dest,o1, o2)
+
+Herança
+
+Procura o pai:
+const ferrari = {
+    modelo: 'f40',
+    velMax: 324
+}
+console.log(ferrari.__proto__) //atributo padrão 
+console.log(ferrari.__proto__ === Object.prototype)//true
+
+Cadeia de protótipos (Aceita Sobrescrever):
+Object.prototype.attr0 = '0'
+const avo = {attr1: 'A'} // o __proto__ dele é o Object.prototipe
+const pai = {__proto__: avo, attr2: 'B', attr3: 'Fe'}
+const filho = {__proto__:pai, attr3: 'C'}
+console.log(filho.attr1)
+console.log(filho.attr0, filho.attr1, filho.attr2, filho.attr3) //vai mostrar o attr3 de filho (Shadowing)
+
+Super:
+const carro = {
+    velAtual: 0,
+    velMax: 200,
+    acelerarMais(delta){
+        if(this.velAtual + delta <= this.velMax){
+            this.velAtual += delta
+        } else {
+            this.velAtual = this.velMax
+        }
+    },
+    status(){
+        return `${this.velAtual}KM/h de ${this.velMax}KM/h`
+    }
+}
+const ferrari = {
+    modelo: 'f40',
+    velMax: 324 //Shadowing
+}
+const volvo = {
+    modelo: v40,
+    status() {
+        return `${this.modelo}: ${super.status()} ` //o super serve para chamar o objeto da herança. não o this
+    }
+}
+
+Setando protótipo:
+Object.setPrototypeOf(ferrari, carro) // Ferrari vai ter como protótipo carro
+Object.setPrototypeOf(volvo, carro) // Volvo vai ter como protótipo carro
