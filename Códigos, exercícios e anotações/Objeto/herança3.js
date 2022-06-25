@@ -16,8 +16,9 @@ console.log(Object.keys(filha1))
 console.log(Object.keys(filha2))
 
 for(let key in filha2){
-        console.log(atributos, value)
+        console.log(key)
 }
+
 
 for(let key in filha2){
     filha2.hasOwnProperty(key) ?
