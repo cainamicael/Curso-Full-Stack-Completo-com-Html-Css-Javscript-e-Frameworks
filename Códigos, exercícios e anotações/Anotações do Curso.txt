@@ -1223,3 +1223,15 @@ const pessoa = {
 }
 Object.seal(pessoa) 
 console.log('Selado:', Object.isSealed(pessoa))
+
+JSON:
+Arquivo de texto, interpretado em todas as linguagens
+
+Transformando Objeto em JSON:
+const obj = {a: 1, b: 2, c: 3, soma(){ return a + b + c}}
+console.log(JSON.stringify(obj))
+
+JSON em Objeto:
+console.log(JSON.parse('{"a": 1, "b": 2, "c": 3}'))
+//Observar onde é aspas ' e aspas "
+console.log(JSON.parse('{"a": "1", "b": "string", "c": true, "d": {}, "e":[]}'))
