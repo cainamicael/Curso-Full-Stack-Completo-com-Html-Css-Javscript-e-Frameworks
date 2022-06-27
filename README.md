@@ -1,7 +1,7 @@
 # Curso Web Moderno Completo com JavaScript
  Curso Full-Stack Udemy
 
-link: 
+link: https://www.udemy.com/course/curso-web/
 
 O que você aprenderá:
 
