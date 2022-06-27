@@ -1287,3 +1287,35 @@ class Filho extends Pai {
 }
 const filho = new Filho
 console.log(filho)
+
+Array
+
+No js, o array é um objeto, que organiza os neus dados através de um índice
+Ele é dinâmico e posso colocar vários tipos
+É bom trabalhar com dados do mesmo tipo no array
+
+Forma instanciada de array:
+let aprovados = new Array('Bia', 'Carlos', 'Ana')
+console.log(aprovados)
+
+Forma literal de array:
+aprovados = ['Bia', 'Carlos', 'Ana']
+console.log(aprovados[0])
+console.log(aprovados[1])
+
+Adicionando valores:
+aprovados.push('Abia')//adição
+
+Substituindo valores:
+aprovados[3] = 'paulo' //Substituição, mas pode usar essa forma para add
+
+Ordenar por ordem alfabética:
+aprovados.sort()
+
+Excluir:
+delete aprovados[1]//deixa undefined, não reordena
+
+Splice:
+aprovados.splice(1, 1) //a partir do indice 1, excluir 1(ou +) elemento. se for 1, exclui o do indice e reordena
+aprovados.splice(1, 2, 'addelemento1', 'addelemento2')//a partir do indice 1, dps da exclusão, ele pode adicionar também
+aprovados.splice(1, 0, 'addelemento1', 'addelemento2')//a partir do indice 1,não há exclusão, ele pode adicionar também
