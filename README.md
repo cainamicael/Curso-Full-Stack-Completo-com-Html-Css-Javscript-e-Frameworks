@@ -3,7 +3,8 @@
 
 link: 
 
-<!-- O que você aprenderá -->
+O que você aprenderá:
+
 Tudo que vc precisa saber para construir aplicações modernas para Web
 
 Criar aplicações REAIS usando as mais modernas tecnologias do mercado
