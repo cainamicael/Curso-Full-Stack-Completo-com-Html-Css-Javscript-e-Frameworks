@@ -1332,3 +1332,42 @@ aprovados.unshift('nome')
 Novo array:
 const algunsPilotos = pilotos.slice(2) // cria um novo array a partir do indice 2
 const algunsPilotos2 = pilotos.slice(1, 4) // do 1 ao 4, só que o 4 não entra. 4-1
+
+Simulando array com objetos:
+const quaseArray = {0: 'Rafael', 1: 'Ana', 2: 'Bia'}
+console.log(quaseArray)
+Object.defineProperty(quaseArray, 'toString', {
+    value: function() { return Object.values(this)},
+    enumerable: false
+})
+console.log(quaseArray[0])
+
+forEach
+
+Uma função, que dentro tem o laço for. Quando achar o 1º elemento, ele entra na callback
+e faz o queos parâmetros da callBack  pedem
+
+a ordem dos parâmetros de uma callBack no forEach:
+1º Nome,
+2º Índice
+3º Array ou a estrutura que está trabalhando, ex: Objeto
+
+array de aprovados:
+aprovados.forEach(function (nome, indice, array) { //o índice é sempre o segundo parâmetro
+    console.log(`${indice + 1} ${nome}`)
+    console.log(array)
+})
+
+forEach com array function:
+aprovados.forEach(nome => console.log(nome))
+
+Função na variável:
+const exibirAprovados = aprovados => console.log(aprovados)
+aprovados.forEach(exibirAprovados)
+
+Criando nosso forEach:
+Array.prototype.forEach2 = function(callback){
+    for (let i = 0; i < this.length; i++){
+        callback(this[1], i, this)
+    }
+}
