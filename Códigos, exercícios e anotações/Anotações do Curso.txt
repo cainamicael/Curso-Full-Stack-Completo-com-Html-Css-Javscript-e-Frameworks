@@ -1306,6 +1306,12 @@ console.log(aprovados[1])
 Adicionando valores:
 aprovados.push('Abia')//adição
 
+Remover o último valor:
+aprovados.pop()
+
+Remover o primeiro elemento:
+aprovados.shift('nome')
+
 Substituindo valores:
 aprovados[3] = 'paulo' //Substituição, mas pode usar essa forma para add
 
@@ -1319,3 +1325,10 @@ Splice:
 aprovados.splice(1, 1) //a partir do indice 1, excluir 1(ou +) elemento. se for 1, exclui o do indice e reordena
 aprovados.splice(1, 2, 'addelemento1', 'addelemento2')//a partir do indice 1, dps da exclusão, ele pode adicionar também
 aprovados.splice(1, 0, 'addelemento1', 'addelemento2')//a partir do indice 1,não há exclusão, ele pode adicionar também
+
+Adicionar elemento no primeiro indice (0):
+aprovados.unshift('nome')
+
+Novo array:
+const algunsPilotos = pilotos.slice(2) // cria um novo array a partir do indice 2
+const algunsPilotos2 = pilotos.slice(1, 4) // do 1 ao 4, só que o 4 não entra. 4-1
