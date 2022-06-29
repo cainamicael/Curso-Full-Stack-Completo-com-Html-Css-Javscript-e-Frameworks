@@ -1462,4 +1462,37 @@ Ja´passando um valor inicial:
 const resultado = alunos.map(a => a.nota).reduce(function(acumulador, atual){
     console.log(acumulador, atual)
     return acumulador + atual
-},10)// esse 10 é para ja começar com 10
+},10)// esse 10 é para ja começar com 10 - 10 é o acumulador
+
+Para ver se todos os valores dos atributos são iguais (true ou false):
+const alunos = [
+    {nome: 'João', nota: 7.3, bolsista: true}, 
+    {nome: 'Maria', nota: 9.2, bolsista: true},
+    {nome: 'Pedro', nota: 9.8, bolsista: true},
+    {nome: 'ana', nota: 8.7, bolsista: true}
+]
+const todosBolsistas = (resultado, bolsista) => resultado && bolsista
+console.log('Todos são bolsistas? ' + alunos.map(a => a.bolsista).reduce(todosBolsistas))
+
+Para ver a quantidade de true ou false:
+const alunos = [
+    {nome: 'João', nota: 7.3, bolsista: true}, 
+    {nome: 'Maria', nota: 9.2, bolsista: true},
+    {nome: 'Pedro', nota: 9.8, bolsista: true},
+    {nome: 'ana', nota: 8.7, bolsista: true}
+]
+const algumBolsista = (resultado, bolsista) => resultado+bolsista //resultado || bolsista para saber se tem 1 bolsista
+console.log('Quantidade de alunos bolsistas: ' + alunos.map(a => a.bolsista).reduce(algumBolsista))
+
+Criando nosso reduce:
+Array.prototype.reduce2 = function(callback, valorInicial){
+    const indiceInicial = valorInicial ? 0 : 1
+    let acumulador = valorInicial || this[0]
+    for (let i = indiceInicial; i < this.length; i++){
+        acumulador = callback(acumulador, this[i], i, this)
+    }
+    return acumulador
+}
+const soma = (total, valor) => total + valor
+const nums = [1,2,3,4,5,6]
+console.log(nums.reduce2(soma, 21))
