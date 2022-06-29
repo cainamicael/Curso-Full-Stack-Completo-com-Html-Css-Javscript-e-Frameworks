@@ -1520,3 +1520,51 @@ const getNota = aluno => aluno.nota
 const soma = (total, atual) => total + atual 
 const total2 = alunos.map(getNota).reduce(soma)
 console.log(total2 / alunos.length)
+
+Concat 
+
+Concatenar vários arrays em um novo array
+
+Concatenando Arrays:
+const filhas  = ['Valeskah', 'Cibalena']
+const filhos  = ['Washington','Wescley']
+const todos = filhas.concat(filhos)
+console.log(todos)
+
+Concatenar e adicionar:
+const todos = filhas.concat(filhos, 'Fulano')
+
+FlatMap
+
+Junta matrizes
+
+Criando um flatMap: 
+const escola = [{
+    nome: 'turma m1',
+    alunos: [{
+        nome: 'Gusttavo',
+        nota: 8.1
+    },{
+        nome: 'ana',
+        nota: 9.3
+    }]
+}, {
+    nome: 'Turma m2',
+    alunos: [{
+        nome: 'Rebeca',
+        nota: 8.9
+    }, {
+        nome: 'Roberto',
+        nota: 7.3
+    }]
+}]
+console.log(escola)
+const getNotaDoAluno = aluno => aluno.nota
+const getNotasDaTurma = turma => turma.alunos.map(getNotaDoAluno)
+const notas1 = escola.map(getNotasDaTurma)
+console.log(notas1)
+Array.prototype,flatMap = function(callback){
+    return Array.prototype.concat.apply([], this.map(callback))
+}
+const todasAsNotas = escola.flatMap(getNotasDaTurma)
+console.log(todasAsNotas)
