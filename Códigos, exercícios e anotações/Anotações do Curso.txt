@@ -1439,8 +1439,10 @@ Array.prototype.filter2 = function(callback){
 
 Reduce
 
-Transformar um array em algo
-Acululador é o primeiro elemento e atual é o segundo
+Agrega valores
+Acululador é o primeiro elemento e atual é o segundo, e na proxima repetição, 
+o acumulador vai ser a junção do indice 0 + indice 1, e o atual vai ser o indice 2
+e assim por diante
 
 Uso do reduce como soma geral:
 const alunos = [
@@ -1496,3 +1498,25 @@ Array.prototype.reduce2 = function(callback, valorInicial){
 const soma = (total, valor) => total + valor
 const nums = [1,2,3,4,5,6]
 console.log(nums.reduce2(soma, 21))
+
+Imperativo VS Declarativo
+
+const alunos = [
+    {nome: 'João', nota: 7.9},
+    {nome: 'Maria', nota: 9.2}
+]
+
+Imperativo:
+Serve para ensinar passo a passo de como fazer - Foca no que será feito - Os detalhes importam mais
+let total1 = 0
+for (let i = 0; i < alunos.length; i++){
+    total1 += alunos[i].nota
+}
+console.log(total1 / alunos.length)
+
+Declarativa:
+As coisas são feitas internamente - Foca no resultado final, o que tem que ser feito - O resultado é o que importa
+const getNota = aluno => aluno.nota
+const soma = (total, atual) => total + atual 
+const total2 = alunos.map(getNota).reduce(soma)
+console.log(total2 / alunos.length)
