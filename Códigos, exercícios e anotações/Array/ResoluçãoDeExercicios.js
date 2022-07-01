@@ -92,3 +92,149 @@ console.log(simboloMais(2))
 console.log(simboloMais(20))
 console.log(simboloMais(1))
 console.log(simboloMais(40))
+
+//QUestão 11
+function receberPrimeiroEUltimoElemento(array){
+    const newArray = []
+    newArray.push(array[0])
+    newArray.push(array[(array.length)-1])
+    
+    return newArray
+}
+console.log(receberPrimeiroEUltimoElemento([0,1,2,3,4,5,6,7,8]))
+
+//Questão 12
+function removerPropriedade(objeto, atributo){
+    const newObjeto = objeto
+    delete newObjeto[atributo]
+    return newObjeto
+}
+console.log(removerPropriedade({a: 1, b: 2}, 'a'))
+console.log(removerPropriedade({id: 20,nome: 'Caneta',descricao: 'Não preenchida'}, 'descricao'))
+console.log(Object.is(removerPropriedade({a: 1, b: 2}, 'a'),{a: 1, b: 2}))
+console.log(Object.is(removerPropriedade({id: 20,nome: 'Caneta',descricao: 'Não preenchida'}, 'descricao'), {id: 20,nome: 'Caneta',descricao: 'Não preenchida'} ))
+
+//Questão 13
+const filtrarNumeros = array => {
+    return array.filter(item => typeof item === 'number')
+}
+console.log(filtrarNumeros(['JavaScript', 1, '3', 'Web', 20]))
+console.log(filtrarNumeros(['a', 'c']))
+
+//Questão 14
+const objetoParaArray = objeto => {
+    const array = []
+    for (let atributo in objeto){
+        array.push([atributo, objeto[atributo]])
+    }
+    return array
+}
+console.log(objetoParaArray({nome: 'Maria', profissao: 'Dev'}))
+console.log(objetoParaArray({codigo: 1111, preco: 1200}))
+
+//Questão 15
+const receberSomenteOsParesDeIndicesPares = array => {
+    const array2 = []
+    for (let i in array){
+        if (i%2 === 0){
+            if (array[i]%2 === 0){
+                array2.push(array[i])
+            }
+        }
+    }
+    return array2
+}
+
+
+console.log(receberSomenteOsParesDeIndicesPares([1, 2, 3, 4]))
+console.log(receberSomenteOsParesDeIndicesPares([10, 70, 22, 43]))
+
+//Questão 16
+const checarAnoBisexto = ano => {
+    if (ano%4 === 0 && ano%400 === 0 || ano%100 != 0  ) return true
+    return false
+}
+console.log(checarAnoBisexto(2020))
+console.log(checarAnoBisexto(2016))
+console.log(checarAnoBisexto(2100))
+console.log(checarAnoBisexto(2024))
+console.log(checarAnoBisexto(2012))
+
+//Questão 17
+const somarNumeros = array => {
+    const newArray = []
+    newArray.push(array.reduce((total, atual) => total+atual ))
+    return newArray
+}
+console.log(somarNumeros([10,10,10]))
+console.log(somarNumeros([15,15,15,15]))
+
+//Questão 17
+function despesasTotais(itens){
+    return itens.map(itens => itens.preco).reduce((a,b) => a+b)
+}
+console.log(despesasTotais([{preco: 10},{preco: 20}]))
+
+//Questão 17
+const calcularMedia = array => {
+    const soma = array.reduce((a,b) => a+b)
+    return soma/array.length
+}
+console.log(calcularMedia([0, 10]))
+console.log(calcularMedia([1,2,3,4,5]))
+
+//Questão 18
+const areaTriangulo = (base, altura) => ((base*altura)/2).toFixed(2)
+console.log(areaTriangulo(10,15))
+console.log(areaTriangulo(7,9))
+console.log(areaTriangulo(9.25, 13.1))
+
+//Questão 19
+const menorNumero = array => {
+    const aux = array
+    aux.sort((a,b) => a - b)
+    return aux[0]
+}
+console.log(menorNumero([10, 5, 35, 65]))
+console.log(menorNumero([5, -15, 50, 3]))
+
+//Questão 20
+const numeroDaSorte = numero => {
+    const sort = Math.floor(Math.random() * 11)
+    if (numero == sort) return `Parbéns. O numero sorteado foi: ${sort}, e o seu numero escolhido foi ${numero}`
+    return `Tente novamente. O numero sorteado foi: ${sort}, e o seu numero escolhido foi ${numero}`
+}
+console.log(numeroDaSorte(5))
+
+//Questão 21
+const contarPalavra = function (palavra){
+    const totalDePalavras = palavra.split(' ')
+    return totalDePalavras.length
+}
+console.log(contarPalavra('Sou uma frase'))
+console.log(contarPalavra('me divirto aprendendo a programar'))
+console.log(contarPalavra('a'))
+
+//QUestão 22
+const contarCaractere = function (caractere, frase){
+    let contador = 0
+    for (let letra in frase){
+        if (frase.charAt(letra) === caractere) contador++
+    }
+    return contador
+}
+console.log(contarCaractere('r', 'A sorte favorece os audazes'))
+console.log(contarCaractere('c', 'conhece-te a ti mesmo'))
+
+//Questão 23
+const buscaPalavrasSemelhantes = (palavra, array) => {
+    const a = []
+    for (let i in array){
+        if (array[i].substr(0, palavra.length) == palavra) {
+            a.push(array[i])
+        }
+    }
+    return a
+}
+console.log(buscaPalavrasSemelhantes('pro', ['programa','profissional','photoshop']))
+console.log(buscaPalavrasSemelhantes('python', ['java','css','go']))

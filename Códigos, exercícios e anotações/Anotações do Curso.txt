@@ -1427,6 +1427,11 @@ console.log(produtos.filter(function (p) {
     return p.preco > 2500 // se for return false, nenhum elemento passa para o novo array
 }))
 
+exemplo 2:
+const filtrarNumeros = array => {
+    return array.filter(item => typeof item === 'number')
+}
+
 Criando nosso próprio filter:
 Array.prototype.filter2 = function(callback){
     const newArray = []
@@ -1568,3 +1573,5 @@ Array.prototype,flatMap = function(callback){
 }
 const todasAsNotas = escola.flatMap(getNotasDaTurma)
 console.log(todasAsNotas)
+
+charA
