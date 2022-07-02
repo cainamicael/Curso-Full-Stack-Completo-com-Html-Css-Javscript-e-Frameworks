@@ -323,13 +323,3 @@ function receberMelhorEstudante(estudantes){
 }
 console.log(receberMelhorEstudante({Joao: [8, 7.6, 8.9, 6], Marina: [9, 6.6, 7.9, 8], carla: [7, 7, 8, 9]}))
 
-//
-const obj = {nome: 'caina', sobrenome: 'micael'}
-for (let [chave, valor] of Object.entries(obj)){
-    console.log(valor)
-}
-
-const obj2 = {nome: 'caina', sobrenome: 'micael'}
-for (let [chave, valor] of Object.entries(obj)){
-    console.log(chave)
-}
