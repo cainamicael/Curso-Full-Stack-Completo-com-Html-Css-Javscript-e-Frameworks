@@ -215,7 +215,7 @@ console.log(contarPalavra('Sou uma frase'))
 console.log(contarPalavra('me divirto aprendendo a programar'))
 console.log(contarPalavra('a'))
 
-//QUestão 22
+//Questão 22
 const contarCaractere = function (caractere, frase){
     let contador = 0
     for (let letra in frase){
@@ -236,5 +236,94 @@ const buscaPalavrasSemelhantes = (palavra, array) => {
     }
     return a
 }
+
+//ou
+
+const buscarPalavrasSemenhantes2 = (palavra, array) => {
+    return array.filter(palavras => palavras.includes(palavra))
+}
 console.log(buscaPalavrasSemelhantes('pro', ['programa','profissional','photoshop']))
-console.log(buscaPalavrasSemelhantes('python', ['java','css','go']))
+console.log(buscarPalavrasSemenhantes2('python', ['java','css','go']))
+
+//Questão 24
+const removerVogais = palavra => {
+    let semVogais = palavra
+    const vogais = ['a', 'e', 'i', 'o', 'u']
+    vogais.forEach(vogal => semVogais = semVogais.replace(vogal, ''))
+    return semVogais
+}
+console.log(removerVogais('aeiou'))
+console.log(removerVogais('Cod3r'))
+console.log(removerVogais('FUNDAMENTOS'))
+
+//Questão 25
+const inverter = objeto => {
+    let newObjeto = {}
+    for (let atributo in objeto){
+        newObjeto[objeto[atributo]] = atributo
+    }
+    return newObjeto
+} 
+//ou
+const inverter2 = objeto => {
+    const objetoInvertido = {}
+    Object.entries(objeto).forEach(parChaveValor => {
+        const chave = 0
+        const valor = 1
+        objetoInvertido[parChaveValor[valor]] = parChaveValor[chave]
+    })
+    return objetoInvertido
+}
+console.log(inverter({a: 1, b: 2}))
+console.log(inverter2({bem_1: 'casa', bem_2: 'carro'}))
+console.log(inverter2({a: 574.5, b: 887}))
+console.log(inverter({bem_1: 'casa', bem_2: 'carro'}))
+
+//Questão 26
+function filtrarPorQuantidadeDeDigitos(array, digito) {
+    let newArray = []
+    for (let i in array){
+        if (array[i].toString().length === digito) newArray.push(array[i])
+    }
+    return newArray
+}
+
+//ou
+function filtrarPorQuantidadeDeDigitos2(array, digito) {
+    const newArray = array.filter(numero => numero.toString().length === digito)
+    return newArray
+}
+
+console.log(filtrarPorQuantidadeDeDigitos([1,2,30], 2))
+console.log(filtrarPorQuantidadeDeDigitos2([5,9,1,125,11], 1))
+
+//Questão 27
+const segundoMaior = array => {
+    const aux = array 
+    aux.sort((a,b) => b - a )
+    return aux[1]
+}
+console.log(segundoMaior([12,16,1,5]))
+console.log(segundoMaior([8,4,5,6]))
+
+//Questão 28
+const soma = array => array.reduce((acumulador, atual) => acumulador + atual, 0)
+const media = array => soma(array) / (array.length)
+
+function receberMelhorEstudante(estudantes){
+    const estudantesComMedia = Object.entries(estudantes).map(estudante => {
+        const chave = 0
+        const valor = 1
+        return {nome: estudante[chave], media: media(estudante[valor])}
+       
+    })
+    const estudantesOrdenados = estudantesComMedia.sort(((a,b) => b.media - a.media))
+    const melhorEstudante = estudantesOrdenados[0]
+    return melhorEstudante
+}
+console.log(receberMelhorEstudante({Joao: [8, 7.6, 8.9, 6], Marina: [9, 6.6, 7.9, 8], carla: [7, 7, 8, 9]}))
+
+//
+const obj = {nome: 'caina', sobrenome: 'micael'}
+const objArray = Object.entries(obj)
+console.log(objArray[0])

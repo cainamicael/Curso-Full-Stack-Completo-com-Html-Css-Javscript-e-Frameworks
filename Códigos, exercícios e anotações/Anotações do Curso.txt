@@ -1574,4 +1574,4 @@ Array.prototype,flatMap = function(callback){
 const todasAsNotas = escola.flatMap(getNotasDaTurma)
 console.log(todasAsNotas)
 
-charA
+split
