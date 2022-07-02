@@ -1062,6 +1062,18 @@ console.log(Object.keys(objeto))//retorna só as chaves
 console.log(Object.values(objeto))//Retorna só os valores
 console.log(Object.entries(pessoa))//Cria um sub array com chave/valor
 
+Mostrando só o valor do objeto:
+const obj = {nome: 'caina', sobrenome: 'micael'}
+for (let [chave, valor] of Object.entries(obj)){
+    console.log(valor)
+}
+
+Mostrando só a chave do objeto:
+const obj2 = {nome: 'caina', sobrenome: 'micael'}
+for (let [chave, valor] of Object.entries(obj)){
+    console.log(chave)
+}
+
 Destructuring:
 Object.entries(pessoa).forEach(e => {
     console.log(`${e[0]}: ${e[1]}`)
@@ -1573,5 +1585,3 @@ Array.prototype,flatMap = function(callback){
 }
 const todasAsNotas = escola.flatMap(getNotasDaTurma)
 console.log(todasAsNotas)
-
-split

@@ -325,5 +325,11 @@ console.log(receberMelhorEstudante({Joao: [8, 7.6, 8.9, 6], Marina: [9, 6.6, 7.9
 
 //
 const obj = {nome: 'caina', sobrenome: 'micael'}
-const objArray = Object.entries(obj)
-console.log(objArray[0])
+for (let [chave, valor] of Object.entries(obj)){
+    console.log(valor)
+}
+
+const obj2 = {nome: 'caina', sobrenome: 'micael'}
+for (let [chave, valor] of Object.entries(obj)){
+    console.log(chave)
+}
