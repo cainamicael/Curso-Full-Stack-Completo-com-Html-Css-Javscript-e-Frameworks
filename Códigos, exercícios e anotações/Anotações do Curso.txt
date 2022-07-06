@@ -1618,3 +1618,35 @@ Array.prototype,flatMap = function(callback){
 }
 const todasAsNotas = escola.flatMap(getNotasDaTurma)
 console.log(todasAsNotas)
+
+Módulos Node.JS
+
+Muda a forma de utilização se for front/back - end
+No back, é uma preocupação menor, já que não terá as traduções para o browser entender
+No node, um arquivo está dentro do módulo
+Aplicação Beck-end em pastas e arquivos, no módulo
+O módulo não deixa disponível as informações. Para torna-lo público, presisa-se de uma exportação
+Padrão CommonJS e o padrão do Ecmascrypt 2015
+
+Para exportar:
+this.ola = 'Fala Pessoal' //Obj
+exports.bemVindo = 'Bem vindo ao node' //Obj
+module.exports.ateLogo = 'Até o próximo exemplo' //Forma mais utilizada
+
+Ex module.exports:
+module.exports = {
+    bomDia: 'Bom dia',
+    boaNoite() {
+        return 'Boa noite'
+    }
+}
+
+Importando módulos:
+const moduloA = require('./moduloA')
+const moduloB = require('./moduloB')
+console.log(moduloA.ola)
+console.log(moduloA.bemVindo)
+console.log(moduloA.ateLogo)
+console.log(moduloA)
+console.log(moduloB.bomDia)
+console.log(moduloB.boaNoite())
