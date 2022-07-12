@@ -1106,6 +1106,24 @@ function media(alunos){
 const alunos = {Joao: [10, 10, 10, 10], Marina: [8, 8, 8, 8], carla: [7, 7, 7, 7]}
 console.log(media(alunos))
 
+Ex2:
+const chineses = f => f.pais === 'China'
+const mulheres = f => f.genero === 'F'
+const menorSalario = (funcionario, funcionarioAtual) => {
+    return funcionario.salario < funcionarioAtual ? funcionario : funcionarioAtual
+}
+
+axios.get(url).then(response => {
+    const funcionarios = response.data
+
+    const func = funcionarios
+        .filter(chineses)
+        .filter(mulheres)
+        .reduce(menorSalario)
+
+    console.log(func)
+})
+
 
 Destructuring:
 Object.entries(pessoa).forEach(e => {
@@ -1685,3 +1703,17 @@ Sinais:
 O ^ quer dizer q vai atualizar, mas não vai pra 1.0
 O ~ quer dizer q pode ir até 0.27.9, e não 0.28
 Sem sinal limita só até esta versão
+
+Axios:
+Cliente http - Obtem informações remotas
+
+const url = 'http://files.cod3r.com.br/curso-js/funcionarios.json'
+const axios = require('axios') //cliente http - Obtem informações remotas
+
+uso:
+axios.get(url).then(response => {
+    const funcionarios = response.data
+    console.log(funcionarios)
+}) //pega a url e extrai os funcionarios
+
+Instância unica vs nova instância
