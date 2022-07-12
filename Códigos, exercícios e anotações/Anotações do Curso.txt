@@ -1668,3 +1668,20 @@ http.createServer((req,resp) => {
     resp.write('Bom dia')
     resp.end()
 }).listem(8080)
+
+Arquivo packag.json
+
+Descreve todo o projeto
+
+Criando:
+npo init //Para eu responder as perguntas
+npo init -y//Para responder as perguntas com sim
+
+Colocando dependências:
+npm i --save axios
+
+Sinais:
+"axios": "^0.27.2"
+O ^ quer dizer q vai atualizar, mas não vai pra 1.0
+O ~ quer dizer q pode ir até 0.27.9, e não 0.28
+Sem sinal limita só até esta versão
