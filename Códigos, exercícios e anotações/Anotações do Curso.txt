@@ -1716,4 +1716,117 @@ axios.get(url).then(response => {
     console.log(funcionarios)
 }) //pega a url e extrai os funcionarios
 
-Instância unica vs nova instância
+Instância unica vs nova instância:
+Uma instância unica, se tivr 2 variáveis atribuidas, muda o valor das duas. Na nova, só muda de uma
+
+Objeto global:
+global.MinhaApp = Object.freeze({
+    saudacao(){
+        return 'Estou em todos os lugares'
+    },
+    nome: 'Sistema legal'
+})//em outra aba
+require('./global')
+console.log(MinhaApp.saudacao())
+
+MinhaApp.nome = 'Eita!'
+console.log(MinhaApp.nome)
+
+Entendendo o this:
+Dentro da função, o this não aponta para exports; mas fora aponta
+Dentro da função ele aponta para global. Fora, não
+console.log(this === global)
+console.log(this === module)
+console.log(this === module.exports)
+console.log(this === exports)
+function logThis (){
+    console.log('Dentro da função')
+    console.log(this === exports)
+    console.log(this === module.exports)
+    console.log(this === global)
+}
+
+logThis()
+
+Passando parâmetros entre módulos
+
+Depois do require, eu posso passar os parâmetros da função, eu outro parentese
+
+Exemplo:
+module.exports = function(...nomes){
+    return nomes.map(nome => 'Boa semana ' + nome + '!')
+}//em outra aba
+const saudacoes = require('./passandoParametros')('Ana','Lucas','João')
+
+Script no package.json:
+ "scripts": {
+    "start": "nodemon",
+    "dev": "nodemon",
+
+No terminal para executar:
+npm start //Ja tem nomenclatura padrão ex test, restart, start
+npm run dev
+
+Lendo arquivos node
+
+Para leitura, tenho que criar um arquivo json com as informações:
+{
+    "db": {
+        "host": "localhost",
+        "porta": 5432,
+        "user": "usuário",
+        "pass": 123456
+    }
+}
+
+Tenho que importar um módulo fs (File System):
+const fs = require('fs')//ja vem instalado no node
+const caminho = __dirname + '/arquivo.json' // mostra o caminho
+
+__dirname:
+Representa o diretório atual
+ __dirname + '/arquivo.json'
+
+Sincrono: //ja usando o require do ex anteriores
+const conteudo = fs.readFileSync(caminho, 'utf-8')
+console.log(conteudo) // Não é muito viável, pois tem q esperar carregar
+
+Assincrono:
+fs.readFile(caminho, 'utf-8', (err, conteudo) => {
+    const config = JSON.parse(conteudo)
+    console.log(`${config.db.host}:${config.db.port}`)
+})
+//Ou se for json
+const config = require('./arquivo.json')
+console.log(config.db)
+
+Lendo arquivos de uma pasta:
+fs.readdir(__dirname, (err, conteudo) => {
+    console.log('conteudo da pasta')
+    console.log(conteudo)
+})
+
+Escrevendo arquivos
+
+exemplo:
+const fs = require('fs')
+
+const produto = {
+    nome: 'celular',
+    preco: 1249.99,
+    desconto: 0.15
+}
+                    diretorio                transformar em json          tratar erro
+fs.writeFile(__dirname + '/arquivoGerado.json', JSON.stringify(produto), err => {
+    console.log(err || 'Arquivo salvo!')
+})
+
+conceito de Framework Web
+
+É algo que estrutura a aplicação
+É um arcabolço para desenvolver a aplicação seguindo os preceitos que ele estabelece
+Vai organizar a aplicação inteira
+
+Temos frameworks front-end e back-end
+Eles dão a estrutura básica (de base) para a aplicação, total ou parcial
+Pode-se usar um conjunto de frameworks 
