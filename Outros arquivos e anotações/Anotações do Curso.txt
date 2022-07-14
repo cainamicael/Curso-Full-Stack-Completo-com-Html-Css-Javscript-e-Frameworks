@@ -1835,3 +1835,36 @@ Padrão Chain of Responsability (padrão Middleware)
 
 Consiste em reúso, separando o processo em passos, sem seguir uma sequência específica
 Request & Response (requisição e respostas)
+
+Uso:
+const passo1 = (ctx, next) => {
+    ctx.valor1 = 'mid1'
+    next()
+}
+const passo2 = (ctx, next) => {
+    ctx.valor2 = 'mid2'
+    next()
+}
+const passo3 = ctx => ctx.valor3 = 'mid3' 
+const exec = (ctx, ...middlewares) => {
+    const execPasso = indice => {
+        middlewares && indice < middlewares.length &&
+            middlewares[indice](ctx, () => execPasso(indice + 1))
+    }
+    execPasso(0)
+}
+const ctx = {}
+exec(ctx, passo1, passo2, passo3) //Pode mudar a ordem
+console.log(ctx)
+
+Express JS
+
+Instalando o Postman
+Uma forma de fazer requisições de forma flexível
+https://www.postman.com/downloads/?utm_source=postman-home
+
+Projeto: API com Express
+
+Na pasta do projeto, iniciar o package.json (npm init -y)
+e instalar o express (npm i --save express@4.16.2 -E)
+criar dentro da pasta do projeto a pasta src e dentro da src criar o arquivo servidor.js
