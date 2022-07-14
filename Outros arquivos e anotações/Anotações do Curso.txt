@@ -1830,3 +1830,8 @@ Vai organizar a aplicação inteira
 Temos frameworks front-end e back-end
 Eles dão a estrutura básica (de base) para a aplicação, total ou parcial
 Pode-se usar um conjunto de frameworks 
+
+Padrão Chain of Responsability (padrão Middleware)
+
+Consiste em reúso, separando o processo em passos, sem seguir uma sequência específica
+Request & Response (requisição e respostas)
