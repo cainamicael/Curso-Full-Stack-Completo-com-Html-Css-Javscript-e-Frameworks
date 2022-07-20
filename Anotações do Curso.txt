@@ -1879,3 +1879,50 @@ app.get('/produtos',(req, res, next) => {
 app.listen(porta, () => {
     console.log('Servidor executando na variável porta ' + porta)
 })
+
+Temporizadores:
+npm i node-schedule
+//const tarefa1 = schedule.scheduleJob('*/5 * 12 * * 2')
+                               5 em 5 seg   qq minuto  12 horas   ignora o mes  ignora o dia do mes  terça feira
+o */ é para dizer que é um loop de 5 em 5 seg
+
+Uso:
+const tarefa1 = schedule.scheduleJob('*/5 * 10 * * 3',function(){
+    console.log('Executando tarefa 1: ', new Date().getSeconds())
+})
+
+Parando temporizador:
+setTimeout(function(){
+    tarefa1.cancel()
+    console.log('Cancelando tarefa! ')
+}, 20000) // depois de 20segs
+
+Regra:
+const regra = new schedule.RecurrenceRule()
+regra.dayOfWeek = ( new schedule.Range(1,5)) // de segunda a sexta
+regra.hour = 10
+regra.second = 30
+
+Usando regras: 
+const tarefa2 = schedule.scheduleJob(regra, function(){
+    console.log('Executando tarefa 2: ', new Date().getSeconds())
+})
+
+Process: Entrada e Saída Padrão 
+
+node EntradaESaida.js -a //a flag que a gente criou
+
+Pegando parâmetros através da entrada no terminal:
+const anonimo = process.argv.indexOf('-a') !== -1
+console.log(anonimo)
+if(anonimo){
+    process.stdout.write("Fala Anônimo!\n") //escrita de dados
+} else {
+    process.stdout.write('Informe o seu nome: ')
+    process.stdin.on('data', data => { //entrada de dados
+        const nome = data.toString().replace('\n','')
+        process.stdout.write(` fala ${nome}!\n`)
+        process.exit()
+    })
+}
+
