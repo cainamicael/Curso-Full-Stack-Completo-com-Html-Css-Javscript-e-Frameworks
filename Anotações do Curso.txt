@@ -1925,3 +1925,37 @@ if(anonimo){
         process.exit()
     })
 }
+
+Operador Rest/Spread
+
+Uso:
+//rest(juntar)spread(espalhar)
+//usar rest com parametro de função
+//Usar spread com objeto
+const funcionario = {nome: 'maria', salario: 12348.99}
+const clone = {ativo: true, ...funcionario}
+console.log(clone)
+//Usar spread com array
+const grupoA = ['João', 'Pedro', 'Glória']
+const grupoFinal = ['Maria', ...grupoA, 'Rafaela' ]
+console.log(grupoFinal)
+
+Tagged Template
+
+Tagged templates - processa o template string dentro de uma função
+Vaai criar um array sem os valores da concatenação e outro só com os valores da concatenação
+
+uso: 
+function tag (partes, ...valores){
+    console.log(partes)
+    console.log(valores)
+    return 'Outra string'
+} 
+const aluno = 'Gui'
+const situacao = 'Aprovado'
+console.log(tag`${aluno} está ${situacao}`)
+
+Resulta em:
+[ '', ' está ', '' ]
+[ 'Gui', 'Aprovado' ]
+Outra string
