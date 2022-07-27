@@ -1959,3 +1959,36 @@ Resulta em:
 [ '', ' está ', '' ]
 [ 'Gui', 'Aprovado' ]
 Outra string
+
+Set 
+
+//Não aceita repetição e não é indexado
+const times = new Set()
+times.add('Vasco')
+times.add('São paulo').add('palmeiras').add('corithians')
+times.add('Flamengo')
+times.add('Vasco')//adiciona
+console.log(times.has('Vasco'))//tem vasco?
+
+For of
+
+O for in intera na forma de indica, ja o for of na forma de valores
+
+uso:
+for (let letra of 'Cod3r'){
+    console.log(letra)
+}
+
+Desmembrando (destructuring) com o for of:
+for (let assunto of assuntosMap){
+    console.log(assunto)
+}
+for (let chave of assuntosMap.keys()){
+    console.log(chave)
+}
+for (let valor of assuntosMap.values()){
+    console.log(valor)
+}
+for (let [ch, v1] of assuntosMap.entries()){
+    console.log(ch, v1)
+}
