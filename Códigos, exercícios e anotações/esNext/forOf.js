@@ -29,3 +29,8 @@ for (let valor of assuntosMap.values()){
 for (let [ch, v1] of assuntosMap.entries()){
     console.log(ch, v1)
 }
+
+const s = new Set(['a', 'b', 'c'])
+for (let  letra of s){
+    console.log(letra)
+}
