@@ -21,3 +21,20 @@ console.log('As idades de maior presentes são: ' + deMaior )
 console.log("A média de idades maiores = a 18 é: ")
 const media = deMaior.reduce((a,b) => a+b)
 console.log((media/deMaior.length).toFixed(0))
+
+function exibir (num){
+    console.log("A operação resultou em " + num)
+}
+
+function soma(a,b, callback) {
+    var op = a+b
+    callback(op)
+}
+
+function multiplicacao(a,b,callback){
+    var op = a*b 
+    callback(op)
+}
+
+soma(2,2, exibir)
+multiplicacao(2,4, exibir)
