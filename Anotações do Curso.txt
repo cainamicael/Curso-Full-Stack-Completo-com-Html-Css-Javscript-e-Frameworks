@@ -2104,3 +2104,28 @@ No head:
 
 Caso use o css em putra aba, é só no head colocar o link
  <link rel="stylesheet" href="poucoDeCss.css"> /*O href é o nome do arquivo css*/
+
+ Pode usar o css direto na tag
+ <span id="textoPrincipal" style ="display: none;">Texto 1</span><br> /*Não recomendado*/
+
+ Linkando páginas html (no body):
+ <header>
+        <h1>Exercícios HTML</h1>
+    </header>
+    <nav>
+        <a href="exercicios/teste.html"> Nome do link </a>
+    </nav>
+
+Pegando textos de outra pagina e jogando no conteudo da pagina inicial:
+<script>
+    document.querySelectorAll('a').forEach(link => {
+    const conteudo = document.getElementById("conteudo")
+
+        link.onclick = function (e) {
+            e.preventDefault()
+            fetch(link.href)
+                .then(resp => resp.text())
+                .then(html => conteudo.innerHTML = html)
+        }
+    })
+</script>
