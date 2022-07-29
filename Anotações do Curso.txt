@@ -2068,3 +2068,39 @@ Anatomia de uma página HTML (Tudo tem a sua semântica):
         </footer> <!-- Rodapé -->
     </body>
 </html>
+
+Um pouco de CSS:
+
+O id da Tag é individual
+A class é mais abrangente
+
+<span id="textoPrincipal">Texto 1</span><br>
+<span class="fundoVermelho negrito">Texto 2</span><br> <!-- Nesse caso, são duas classes -->
+<span class="fundoVermelho" wm-atrib>Texto 3</span> /* Cria um atributo [usa para pegar]*/
+
+No head:
+<style>
+    h1 {
+        /* display: none;   todo h1 vai sumir */
+        font-size: 20px;
+    }
+
+    #textoPrincipal{ /*Pegando pelo id*/
+        font-size: 40px;
+        font-weight: bold;
+        background-color: #444;
+        color: #fff;
+        margin-bottom: 50px;
+    }
+
+    .fundoVermelho { /*o ponto na frente diz que é uma classe*/
+        background-color: #C00;
+    }
+
+    .negrito {
+        font-weight: bold;
+    }
+</style>
+
+Caso use o css em putra aba, é só no head colocar o link
+ <link rel="stylesheet" href="poucoDeCss.css"> /*O href é o nome do arquivo css*/
